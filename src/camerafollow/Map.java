@@ -16,6 +16,7 @@ public class Map {
   private final char[][] map;
   private Vector2 screenSize;
 
+  public static final char PLAYER = '@';
   public static final char MONEY = '$';
   public static final char WALL = '#';
   public static final char FLOOR = '.';
@@ -29,10 +30,12 @@ public class Map {
 
     for (int x = 0; x < mapWidth; x++) {
       for (int y = 0; y < mapHeight; y++) {
+        
+        Vector2 symbolLocation = new Vector2(x,y);
         if (x == 0 || (x + 1) == mapWidth || y == 0 || (y + 1) == mapHeight) {
-          this.SetSymbolAtLocation(x, y, WALL);
+          this.SetSymbolAtLocation(symbolLocation, WALL);
         } else {
-          this.SetSymbolAtLocation(x, y, FLOOR);
+          this.SetSymbolAtLocation(symbolLocation, FLOOR);
         }
       }
     }
@@ -65,12 +68,12 @@ public class Map {
     return map[x][y];
   }
 
-  public void SetSymbolAtLocation(int x, int y, char symbol) {
-    map[x][y] = symbol;
+  public void SetSymbolAtLocation(Vector2 location, char symbol) {
+    map[location.x][location.y] = symbol;
   }
 
-  public void ClearSymbolAtLocation(int x, int y) {
-    map[x][y] = '.';
+  public void ClearSymbolAtLocation(Vector2 location) {
+    map[location.x][location.y] = '.';
   }
 
   public Bound GetMapBounds() {

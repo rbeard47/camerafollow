@@ -19,14 +19,15 @@ public class Program {
   public static void main(String[] args) {
     // TODO code application logic here
 
-    World world = new World(new Vector2(60, 60));
     Player player = new Player();
     Camera camera = new Camera(new Vector2(30, 30), new Vector2(20, 10));
-    camera.SetLimits(world.getWorldBounds());
+    Vector2 mapSize = new Vector2(60, 60);
     MapGenerator generator = new MapGenerator();
-    Map map = generator.GenerateMap(60,60);
+    Map map = generator.GenerateMap(mapSize);
 
-    Game game = new Game(world, camera, player, map);
+    camera.SetLimits(map.GetMapBounds());
+
+    Game game = new Game(map, camera, player);
 
     game.Play();
   }

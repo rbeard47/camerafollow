@@ -15,9 +15,13 @@ import java.util.Random;
  */
 public class MapGenerator {
 
-  public static Map GenerateMap(int width, int height) {
+  public MapGenerator() {
 
-    Map map = new Map(width, height);
+  }
+
+  public static Map GenerateMap(Vector2 mapSize) {
+
+    Map map = new Map(mapSize.x, mapSize.y);
 
     AddSymbolToMap(map, Map.MONEY, 10);
     AddSymbolToMap(map, Map.GOBLIN, 5);
@@ -30,10 +34,10 @@ public class MapGenerator {
      Random gridLocator = new Random();
      
      for (int i = 0; i < symbolCount; i++) {
-      int treasureLocationX = gridLocator.nextInt(map.GetMapBounds().right - 1);
-      int treasureLocationY = gridLocator.nextInt(map.GetMapBounds().bottom - 1);
+      Vector2 treasureLocation = new Vector2(gridLocator.nextInt(map.GetMapBounds().right - 1),
+              gridLocator.nextInt(map.GetMapBounds().bottom - 1));
 
-      map.SetSymbolAtLocation(treasureLocationX, treasureLocationY, symbol);
+      map.SetSymbolAtLocation(treasureLocation, symbol);
     }
   }
 }
