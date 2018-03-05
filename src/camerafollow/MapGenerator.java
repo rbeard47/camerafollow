@@ -26,6 +26,7 @@ public class MapGenerator {
     AddSymbolToMap(map, Map.MONEY, 10);
     AddSymbolToMap(map, Map.GOBLIN, 5);
     AddSymbolToMap(map, Map.CHEST, 6);
+    AddSymbolToMap(map, Map.WALL, 50);
     
     return map;
   }

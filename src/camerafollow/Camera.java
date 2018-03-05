@@ -42,7 +42,7 @@ public class Camera {
 
   public void CenterOverObject(Vector2 objectLocation) {
 
-    // Clamp the camera location
+    /* Clamp the camera location */
     cameraPosition.x = Math.max(movementLimits.left,
             Math.min(objectLocation.x - (viewportSize.x / 2), movementLimits.right - viewportSize.x));
 

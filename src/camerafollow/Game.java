@@ -91,7 +91,7 @@ public class Game {
       char mapSymbol = map.GetSymbolAtLocation(currentPlayerPosition.x, currentPlayerPosition.y);
 
       switch (mapSymbol) {
-        case '#':  // Wall, block movement
+        case Map.WALL:  // Wall, block movement
           blockMovement = true;
           break;
 

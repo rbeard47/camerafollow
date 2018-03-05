@@ -25,8 +25,8 @@ public class Map {
 
   public Map(int mapWidth, int mapHeight) {
     screenSize = new Vector2(mapWidth, mapHeight);
+    
     map = new char[mapWidth][mapHeight];
-    Random mapSymbolGenerator = new Random();
 
     for (int x = 0; x < mapWidth; x++) {
       for (int y = 0; y < mapHeight; y++) {

@@ -52,6 +52,6 @@ public class Player {
   }
   
   public boolean isPlayerDead() {
-    return dead;
+    return health <= 0;
   }
 }
